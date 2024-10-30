@@ -327,22 +327,53 @@
 // String will never be empty and you do not need to account for different data types.
 
 
-function findShort(s){
-    s = s.toLowerCase().split(' ');
-    let shortestWord = s[0].length; // this is a reference comparison
+// function findShort(s){
+//     s = s.toLowerCase().split(' ');
+//     let shortestWord = s[0].length; // this is a reference comparison
 
-    if (s == ''){
-        return 'put in something';
+//     if (s == ''){
+//         return 'put in something';
+//     }
+
+//     for (let i = 0; i < s.length; i++){
+        
+//         if (s[i].length < shortestWord){
+//             shortestWord = s[i].length;
+//         }
+//     }
+//     return shortestWord;
+// }
+
+// console.log(findShort('Emeka guru boy deaf latifat'));
+
+
+
+
+//Complete the solution so that it returns true if the first argument(string) passed in ends 
+//with the 2nd argument (also a string).
+
+//Examples:
+
+//solution('abc', 'bc') // returns true
+//solution('abc', 'd') // returns false
+
+function solution(str, ending) {
+    const strLength = str.length;
+    const endingLength = ending.length;
+
+
+    if(endingLength > strLength) {
+        return false;
     }
 
-    for (let i = 0; i < s.length; i++){
-        
-        if (s[i].length < shortestWord){
-            shortestWord = s[i].length;
+    for (let i = 0; i < endingLength; i++){
+        if (str[strLength - endingLength + i] !== ending[i]){
+            return false;
         }
     }
-    return shortestWord;
+    return true;
 }
 
-console.log(findShort('Emeka guru boy deaf latifat'));
+
+console.log(solution("abcde", "e"));
 
